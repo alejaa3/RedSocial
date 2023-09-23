@@ -54,10 +54,29 @@ public class UsuarioDAO {
 		Texto[] colores = Texto.values();
 		for (int i = 0; i < usuarios.size(); i++) {
 			UsuarioDTO user = usuarios.get(i).getInfo();
-			sb.append(colores[i] + "\nUsuario numero: "+ (i+1) + "\n");
-			sb.append("Nombre: "+user.getName() + "\n");
-			sb.append("Usuario: "+user.getUser() + "\n");
-			sb.append("Contraseña: "+user.getPassword() + "\n" + Texto.RESET);
+			//sb.append(colores[i] + "\nUsuario numero: "+ (i+1) + "\n");
+			sb.append(colores[i] + "\n "+ (i+1) + ") ");
+			sb.append("Nombre: "+user.getName() + ", ");
+			sb.append("Usuario: "+user.getUser() + ", ");
+			//sb.append("Contraseña: "+user.getPassword() + "\n" + Texto.RESET);
+		}
+		return sb.toString();
+		
+	}
+	public String showUsersAdmin(String user1, String password) {
+		StringBuilder sb = new StringBuilder();
+		if(user1.equals("1234")&&password.equals("1234")) {
+		Texto[] colores = Texto.values();
+		for (int i = 0; i < usuarios.size(); i++) {
+			UsuarioDTO user = usuarios.get(i).getInfo();
+			//sb.append(colores[i] + "\nUsuario numero: "+ (i+1) + "\n");
+			sb.append(colores[i] + "\n "+ (i+1) + ") ");
+			sb.append("Nombre: "+user.getName() + ", ");
+			sb.append("Usuario: "+user.getUser() + ", ");
+			sb.append("Contraseña: "+user.getPassword() + ", " + Texto.RESET);
+		}
+		}else {
+			sb.append("usuario o contraseña incorrecta");
 		}
 		return sb.toString();
 		

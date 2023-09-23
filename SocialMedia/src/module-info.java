@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author cgseb
- *
- */
-module SocialMedia {
-}

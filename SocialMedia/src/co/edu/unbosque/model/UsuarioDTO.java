@@ -7,6 +7,11 @@ import co.edu.unbosque.util.simple.MyLinkedList;
 
 public class UsuarioDTO implements Serializable{
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -290097685518605313L;
 	private String name;
 	private String user;
 	private String password;

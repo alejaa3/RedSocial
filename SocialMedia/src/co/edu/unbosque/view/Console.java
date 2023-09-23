@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import co.edu.unbosque.util.Texto;
+import co.edu.unbosque.util.exceptions.InvalidNumberException;
 
 public class Console {
 	
@@ -23,13 +24,23 @@ public class Console {
 	     while (true) {
 	            try {
 	                n = sc.nextInt();
-	              break;
+	                return n;
 	            } catch (InputMismatchException e) {
-	                System.out.println(Texto.RED_BACKGROUND+"Error: No es un número válido. Intente nuevamente."+Texto.RESET);
-	                sc.nextLine(); // Limpiar el buffer del scanner
+	            	try {
+	    				throw new InvalidNumberException();
+	    			} catch (InvalidNumberException ex) {
+	                System.out.println(Texto.RED_BACKGROUND+ex.getMessage());
+					burnLine();
+					continue;
+
+	            }
 	            }
 	        }
-		return n;
+		
+	}
+	
+	public void burnLine() {
+		sc.nextLine();
 	}
 	
 	public String read() {

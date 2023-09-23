@@ -11,8 +11,24 @@ public class Console {
 		sc = new Scanner(System.in);
 	}
 	public int readInt() {
-		int n = sc.nextInt();
-		return n;
+		while (true) {
+		try {
+			return sc.nextInt();
+		} catch (InputMismatchException e) {
+			try {
+				throw new InvalidNumberException();
+			} catch (InvalidNumberException ex) {
+				System.out.println(ex.getMessage());
+				burnLine();
+				continue;
+
+			}
+		}
+		}
+	}
+
+	public void burnLine() {
+		sc.nextLine();
 	}
 	
 	public String read() {

@@ -19,8 +19,11 @@ public class Controller {
 	
 	public void run() {
 		
-		titulo();
 		
+		
+		inicio();
+		
+		titulo();
 		
 		while(true) {
 			opciones();
@@ -55,6 +58,19 @@ public class Controller {
 			
 		}
 		
+	}
+	
+	public void inicio() {
+		console.print("Oprime 1 si de desa crear su propios usuarios de "
+				+ "lo contrario ingrese cualquier otro caracter");
+		console.print("1) Crear mis propios usarios");
+		console.print("2) usar usuarios almacenados en la persistencia");
+		int n = console.readInt();
+		if (n == 1) {
+			usuarios.setUsuarios(new MyLinkedList<UsuarioDTO>());
+		}else {
+			
+		}
 	}
 	
 	

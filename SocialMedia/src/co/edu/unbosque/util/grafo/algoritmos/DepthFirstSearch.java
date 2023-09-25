@@ -44,6 +44,36 @@ public class DepthFirstSearch extends AbstractSearch {
 		return false;
 
 	}
+	public boolean runSearch2() {
+		int gradoAmistad=0;
+		if (this.sourceVertex.equals(destinationVertex)) {
+			System.out.println("usted es amigo de sí mismo");
+			System.out.println(sourceVertex.getInfo());
+			return true;
+		}
+		
+		stackOfNodes.push(sourceVertex);
+		gradoAmistad--;
+		while (stackOfNodes.size() != 0) {
+			
+			Vertex<?> current = stackOfNodes.pop();
+			if (current.equals(destinationVertex)) {
+				System.out.println(destinationVertex.getInfo());
+				System.out.println("grado de amistad: "+gradoAmistad+1);
+				return true;
+			} else {
+				System.out.print(current.getInfo() + " -> ");
+				visitedNodes.addLast(current);
+				MyLinkedList<Edge> adyacents = current.getAdyacentEdges();
+				while (!adyacents.isEmpty()) {
+					stackOfNodes.push(adyacents.extract().getDestination());
+					gradoAmistad++;
+				}
+			}
+		}
+		return false;
+		
+	}
 
 	public StackImpl<Vertex<?>> getStackOfNodes() {
 		return stackOfNodes;

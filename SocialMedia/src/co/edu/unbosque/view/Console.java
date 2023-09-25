@@ -24,7 +24,7 @@ public class Console {
 	     while (true) {
 	            try {
 	                n = sc.nextInt();
-	                return n;
+	              return n;
 	            } catch (InputMismatchException e) {
 	            	try {
 	    				throw new InvalidNumberException();
@@ -36,7 +36,6 @@ public class Console {
 	            }
 	            }
 	        }
-		
 	}
 	
 	public void burnLine() {
